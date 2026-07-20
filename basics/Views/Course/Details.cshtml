@@ -1,0 +1,26 @@
+@model Course  // This line specifies that the model for this view is of type Course. It allows you to access the properties of the Course model directly in the view.
+
+@* @await Html.PartialAsync("_Course", @Model)  <!-- This line renders the _Course partial view, passing the current Course object as the model for the partial view. It allows you to reuse the _Course partial view for displaying individual Course objects in different views. --> *@
+
+
+<div class="row">
+    <div class="col-md-4">
+        <img src="/img/@Model.Image" class="img-fluid rounded" alt="Course Image" />  
+    </div>
+    
+    <div class="col-md-8">
+        <a asp-controller="Course" asp-action="Details" asp-route-id="@Model.Id">
+            <h5 class="card-title">@Model.Title</h5>
+        </a>  
+        <p class="card-text">@Model.description</p>
+        <div>
+            @if (Model?.Tags != null)
+            {
+                foreach (var tag in Model.Tags)
+                {
+                    <span class="badge bg-primary">@tag</span>
+                }
+            }
+        </div>
+    </div>
+</div>  

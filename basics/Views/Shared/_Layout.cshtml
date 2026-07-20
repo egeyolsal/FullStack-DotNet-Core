@@ -1,0 +1,25 @@
+﻿<!DOCTYPE html> 
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css"> <!-- This line includes the Bootstrap CSS file from the lib folder, which is typically used for styling the application. -->
+    @RenderSection("Styles", required: false)  <!-- This line renders a section called "Styles" if it is defined in the view being rendered. It allows the layout to be reused across multiple views, while still allowing each view to have its own unique styles. False means the section is optional. -->
+    <title>Document</title>
+</head>
+<body>
+    <header>
+        @await Html.PartialAsync("_Navbar")  <!-- This line renders the _Navbar partial view, which contains the navigation bar for the application. It allows the navigation bar to be reused across multiple views, while still allowing each view to have its own unique content. -->
+        @RenderSection("Header", required: false)  <!-- This line renders a section called "Header" if it is defined in the view being rendered. It allows the layout to be reused across multiple views, while still allowing each view to have its own unique content. False means the section is optional. -->
+    </header>
+    <div class="container mt-4">
+        <main>        
+            @RenderBody()  <!-- This line is a placeholder for the content of the view that is being rendered. It allows the layout to be reused across multiple views, while still allowing each view to have its own unique content. -->
+        </main>
+    </div>
+
+    @RenderSection("Scripts", required: false)  <!-- This line renders a section called "Scripts" if it is defined in the view being rendered. It allows the layout to be reused across multiple views, while still allowing each view to have its own unique scripts. False means the section is optional. -->
+    
+</body>
+</html> 

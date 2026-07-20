@@ -1,0 +1,11 @@
+@model List<Course>  // This line specifies that the model for this view is a list of Course objects. It allows you to access the properties of each Course object in the list directly in the view.
+
+ @foreach (var course in Model)  // This line starts a loop that iterates over each Course object in the list.
+{
+
+    @if (course.isActive)  // This line checks if the current Course object is active. If it is, the code inside the if block will be executed.
+    {
+        @await Html.PartialAsync("_Course", course)  // This line renders the _Course partial view for each Course object in the list, passing the current Course object as the model for the partial view. 
+    }
+
+}  

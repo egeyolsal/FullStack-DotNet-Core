@@ -1,0 +1,3 @@
+@model Course  // This line specifies that the model for this view is of type Course. It allows you to access the properties of the Course model directly in the view.
+
+@await Html.PartialAsync("_Course", @Model)  <!-- This line renders the _Course partial view, passing the current Course object as the model for the partial view. It allows you to reuse the _Course partial view for displaying individual Course objects in different views. -->

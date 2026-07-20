@@ -1,0 +1,27 @@
+@* <h1>Home Page</h1> <!-- It goes to RenderBody() in _Layout.cshtml --> *@
+
+@model List<Course>
+
+@section Header {
+    @await Html.PartialAsync("_Header")  <!-- This line renders the _Header partial view, which contains the header section of the home page. It allows you to reuse the _Header partial view for displaying the header section in different views. -->
+}
+
+<div class="row">
+    @foreach (var course in Model)  // This line starts a loop that iterates over each Course object in the list.
+    {   
+        @if(course.isActive && course.isHome)  // This line checks if the current Course object is active and should be displayed on the home page. If both conditions are true, the code inside the if block will be executed.
+        {
+          
+            <div class="col-3">
+                <div class="card">
+                    <img src="~/img/@course.Image" class="card-img-top"  alt="">
+                    <div class="card-body">
+                        <h5 class="card-title">@course.Title</h5>
+                                <p class="card-text">@course.description</p>
+                        <a asp-controller="Course" asp-action="Details" asp-route-id="@course.Id" class="btn btn-primary">Details</a>
+                    </div>
+                </div>
+            </div>
+        }
+    }
+</div>
