@@ -1,0 +1,31 @@
+@model UserInfo
+
+@{
+    ViewBag.Title = "Application Form";
+}
+
+<h1 class="h4 text-center">Meeting Participation Form</h1>
+<form method="post" action="Apply" novalidate>
+    <div asp-validation-summary="All"></div> @* for errors to be visible *@
+    <div class="mb-3">
+        <label asp-for="Name" class="form-label" >Name - Surname</label>
+        <input asp-for="Name" class="form-control">
+    </div>
+    <div class="mb-3">
+        <label asp-for="Phone" class="form-label" >Phone</label>
+        <input asp-for="Phone" class="form-control">  
+    </div>
+    <div class="mb-3">
+        <label asp-for="Email" class="form-label" >Email</label>
+        <input asp-for="Email" class="form-control">  
+    </div>
+    <div class="mb-3">
+        <label asp-for="AttendanceStatus" class="form-label" >Attendance Status</label>
+        <select asp-for="AttendanceStatus" class="form-select">
+            <option value="">Please, select</option>
+            <option value="true">Yes, I'll come.</option>
+            <option value="false">No, I won't come.</option>
+        </select>
+    </div>
+    <button class="btn btn-primary" type="submit">Save</button>
+</form>

@@ -1,0 +1,27 @@
+@model UserInfo
+
+@{
+    ViewData["Title"] = "Application Details";
+}
+
+@{
+
+    var className = @Model.AttendanceStatus == true ? "primary" : "danger";
+}
+<main class = "text-center">
+    <h1 class="h4">Application Details</h1>
+    <p>
+        <span class="badge text-bg-@className">
+            @if(@Model.AttendanceStatus == true) {
+                <text>Attending</text>
+            }
+            else {
+                <text>Not Attending</text>
+            }
+        </span>
+    </p>
+    <p>Name: @Model.Name</p>
+    <p>E-Mail: @Model.Email</p>
+    <p>Phone: @Model.Phone</p>
+    <a asp-controller="Meeting" asp-action="List" class= "btn btn-outline-@className">Attendee List</a>
+</main>
