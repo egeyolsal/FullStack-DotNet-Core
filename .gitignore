@@ -432,4 +432,4 @@ FodyWeavers.xsd
 *.msp
 
 // for libman folder
-wwwroot/lib/
+**/wwwroot/lib/
